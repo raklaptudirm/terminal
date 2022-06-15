@@ -14,45 +14,45 @@
 package ansi
 
 func (t *Terminal) MoveCursorHome() {
-	t.PrintEsc("[H")
+	t.PrintCSI("H")
 }
 
 func (t *Terminal) MoveCursor(line, column int) {
-	t.PrintEsc("[%d;%dH", line, column)
+	t.PrintCSI("%d;%dH", line, column)
 }
 
 func (t *Terminal) MoveCursorUp(lines int) {
-	t.PrintEsc("[%dA", lines)
+	t.PrintCSI("%dA", lines)
 }
 
 func (t *Terminal) MoveCursorDown(lines int) {
-	t.PrintEsc("[%dB", lines)
+	t.PrintCSI("%dB", lines)
 }
 
 func (t *Terminal) MoveCursorRight(columns int) {
-	t.PrintEsc("[%dC", columns)
+	t.PrintCSI("%dC", columns)
 }
 
 func (t *Terminal) MoveCursorLeft(columns int) {
-	t.PrintEsc("[%dD", columns)
+	t.PrintCSI("%dD", columns)
 }
 
 func (t *Terminal) MoveCursorToColumn(column int) {
-	t.PrintEsc("[%dG", column)
+	t.PrintCSI("%dG", column)
 }
 
 func (t *Terminal) SaveCursorPosition() {
-	t.PrintEsc(" 7")
+	t.PrintCSI("s")
 }
 
 func (t *Terminal) RestoreCursorPosition() {
-	t.PrintEsc(" 8")
+	t.PrintCSI("u")
 }
 
 func (t *Terminal) HideCursor() {
-	t.PrintEsc("[?25l")
+	t.PrintCSI("[?25l")
 }
 
 func (t *Terminal) ShowCursor() {
-	t.PrintEsc("[25h")
+	t.PrintCSI("[25h")
 }

@@ -14,25 +14,25 @@
 package ansi
 
 func (t *Terminal) EraseTillScreenEnd() {
-	t.PrintEsc("[0J")
+	t.PrintCSI("0J")
 }
 
 func (t *Terminal) EraseTillScreenBeginning() {
-	t.PrintEsc("[1J")
+	t.PrintCSI("1J")
 }
 
 func (t *Terminal) EraseScreen() {
-	t.PrintEsc("[2J")
+	t.PrintCSI("2J")
 }
 
 func (t *Terminal) EraseTillLineEnd() {
-	t.PrintEsc("[0K")
+	t.PrintCSI("0K")
 }
 
 func (t *Terminal) EraseTillLineBeginning() {
-	t.PrintEsc("[1K")
+	t.PrintCSI("1K")
 }
 
 func (t *Terminal) EraseLine() {
-	t.PrintEsc("[2K")
+	t.PrintCSI("2K")
 }

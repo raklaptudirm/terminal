@@ -40,7 +40,7 @@ func (t *Terminal) Printf(format string, a ...any) (int, error) {
 	return fmt.Fprintf(t, format, a...)
 }
 
-func (t *Terminal) PrintEsc(format string, a ...any) {
-	format = Esc + format
+func (t *Terminal) PrintCSI(format string, a ...any) {
+	format = Esc + "[" + format
 	t.Printf(format, a...)
 }
