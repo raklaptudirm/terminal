@@ -18,28 +18,36 @@ import (
 	"io"
 )
 
+// Esc represents the value of the ESC code.
 const Esc = "\x1b"
 
+// NewTerminal creates an instance of a Terminal from the given io.Writer.
 func NewTerminal(w io.Writer) *Terminal {
 	return &Terminal{w}
 }
 
+// Terminal represents a terminal supporting ansi escape sequences.
 type Terminal struct {
 	io.Writer
 }
 
+// Print acts like the fmt.Fprint function on a Terminal io.Writer.
 func (t *Terminal) Print(a ...any) (int, error) {
 	return fmt.Fprint(t, a...)
 }
 
+// Println acts like the fmt.Fprintln function on a Terminal io.Writer.
 func (t *Terminal) Println(a ...any) (int, error) {
 	return fmt.Fprintln(t, a...)
 }
 
+// Printf acts like the fmt.Fprintf function on a Terminal io.Writer.
 func (t *Terminal) Printf(format string, a ...any) (int, error) {
 	return fmt.Fprintf(t, format, a...)
 }
 
+// PrintCSI prints the given escape sequence appended to a CSI(ESC [)
+// escape header.
 func (t *Terminal) PrintCSI(format string, a ...any) {
 	format = Esc + "[" + format
 	t.Printf(format, a...)

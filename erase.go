@@ -13,26 +13,36 @@
 
 package ansi
 
+// EraseTillScreenEnd erases everything from the cursor to the end of the
+// screen.
 func (t *Terminal) EraseTillScreenEnd() {
 	t.PrintCSI("0J")
 }
 
+// EraseTillScreenBeginning erases everything from the cursor to the
+// beginning of the screen.
 func (t *Terminal) EraseTillScreenBeginning() {
 	t.PrintCSI("1J")
 }
 
+// EraseScreen erases the entire screen.
 func (t *Terminal) EraseScreen() {
 	t.PrintCSI("2J")
 }
 
+// EraseTillLineEnd erases everything from the cursor to the end of the
+// current line.
 func (t *Terminal) EraseTillLineEnd() {
 	t.PrintCSI("0K")
 }
 
+// EraseTillLineBeginning erases everything from the cursor to the
+// beginning of the current line.
 func (t *Terminal) EraseTillLineBeginning() {
 	t.PrintCSI("1K")
 }
 
+// EraseLine erases the entire current line.
 func (t *Terminal) EraseLine() {
 	t.PrintCSI("2K")
 }
