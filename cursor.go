@@ -50,9 +50,9 @@ func (t *Terminal) RestoreCursorPosition() {
 }
 
 func (t *Terminal) HideCursor() {
-	t.PrintCSI("[?25l")
+	t.PrintCSI("?25l")
 }
 
 func (t *Terminal) ShowCursor() {
-	t.PrintCSI("[25h")
+	t.PrintCSI("25h")
 }
