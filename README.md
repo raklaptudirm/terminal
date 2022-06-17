@@ -1,12 +1,12 @@
-# ansi - Easy ANSI Escape Sequences
+# terminal - Simple Terminal manipulation methods
 
-`ansi` implements functions to use various useful ANSI Escape Sequences for
-doing sophisticated terminal manipulation, including cursor movement and erasing.
+`terminal` implements various functions for doing sophisticated terminal
+manipulation, including cursor movement, screen erasing, and others.
 
 ### Installation
 
 ```
-go get -u laptudirm.com/x/ansi
+go get -u laptudirm.com/x/terminal
 ```
 
 ### Examples
@@ -14,27 +14,27 @@ go get -u laptudirm.com/x/ansi
 ```go
 import (
         "os"
-        "laptudirm.com/x/ansi"
+        "laptudirm.com/x/terminal"
 )
 
-// create an *ansi.Terminal from os.Stdout
-terminal := ansi.NewTerminal(os.Stdout)
+// create an *terminal.Terminal from os.Stdout
+term := terminal.NewTerminal(os.Stdout)
 
 // various terminal manipulation functions
-terminal.EraseScreen()
-terminal.HideCursor()
-terminal.MoveCursorHome()
+term.EraseScreen()
+term.HideCursor()
+term.MoveCursorHome()
 
 // all the fmt functions are also defined
-terminal.Print("Hello, ")
-terminal.Println("World!")
-terminal.Printf("PI: %d", 3.1415)
+term.Print("Hello, ")
+term.Println("World!")
+term.Printf("PI: %d", 3.1415)
 ```
 
 ### Documentation
 
 The documentation and a comprehensive list of all the manipulation functions
-can be found at https://laptudirm.com/x/ansi.
+can be found at https://laptudirm.com/x/terminal.
 
 ### References
 

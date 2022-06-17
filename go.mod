@@ -1,3 +1,3 @@
-module laptudirm.com/x/ansi
+module laptudirm.com/x/terminal
 
 go 1.18
