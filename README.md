@@ -1,6 +1,6 @@
-# terminal - Simple Terminal manipulation methods
+<h1> <samp>terminal</samp> - Simple Terminal manipulation methods </h1>
 
-`terminal` implements various functions for doing sophisticated terminal
+<samp>terminal</samp> implements various functions for doing sophisticated terminal
 manipulation, including cursor movement, screen erasing, and others.
 
 ### Installation
@@ -18,7 +18,7 @@ import (
 )
 
 // create an *terminal.Terminal from os.Stdout
-term := terminal.NewTerminal(os.Stdout)
+term := terminal.New(os.Stdout)
 
 // various terminal manipulation functions
 term.EraseScreen()
