@@ -15,7 +15,7 @@ package terminal
 
 import (
 	"fmt"
-	"io"
+	"os"
 )
 
 // Constants representing escape headers.
@@ -24,14 +24,17 @@ const (
 	Csi = Esc + "["
 )
 
-// New creates an instance of a Terminal from the given io.Writer.
-func New(w io.Writer) *Terminal {
-	return &Terminal{w}
+// New creates an instance of a Terminal from the given *os.File.
+func New(w *os.File) *Terminal {
+	term := Terminal{w}
+	term.init()
+
+	return &term
 }
 
 // Terminal represents a terminal supporting ansi escape sequences.
 type Terminal struct {
-	io.Writer
+	*os.File
 }
 
 // Print acts like the fmt.Fprint function on a Terminal io.Writer.
